@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 /**
  * @author Alessandro Casagrande - 2066716
- * @version 1.1 2023/12/13
+ * @version 1.2 2023/12/31
  */
 public class Simulator {
-    static int selectedServerNumber = 0;
+    static int selectedServerNumber = -1;
 
     public static void main(String[] args) {
         // Events keep sorted by their arrival time
@@ -23,13 +23,11 @@ public class Simulator {
         try {
             inFile = new Scanner(new FileReader(inFilePath));
         } catch (FileNotFoundException e) {
-            System.out.println("Specified file does not exist!"
-                    + " Quitting execution...");
+            System.out.println("Specified file does not exist! Quitting execution...");
             return;
         }
         Scanner line = new Scanner(inFile.nextLine());
         line.useDelimiter(",");
-        int i = 0;
         // reading the first line
         /*
          * K = # of Servers
@@ -46,7 +44,7 @@ public class Simulator {
         // H lines, 4 values each
         double[][] generationParam = new double[H][4];
         int j;
-        i = 0;
+        int i = 0;
         // reading all the 2+r lines, 0 ≤ r < H
         while (inFile.hasNextLine()) {
             line = new Scanner(inFile.nextLine());
@@ -58,6 +56,8 @@ public class Simulator {
             }
             i++;
         }
+        // first line output print
+        System.out.println(K + "," + H + "," + N + "," + R + "," + (P ? 1 : 0));
         // --------------------------------------------------------------------
         // ------------------------------------------------------ First setting
         Category categories[] = new Category[H];
@@ -75,29 +75,85 @@ public class Simulator {
         for (i = 0; i < K; i++) {
             servers[i] = new Server(i);
         }
-        // simulating the arrival of the first Job of each Category
-        for (i = 0; i < H; i++) {
-            timeLine.add(new Event(
-                    false,
-                    categories[i].getInterarrivalTime(),
-                    new Job(categories[i], categories[i].getServiceTime())));
-        }
+        // --------------------------------------------------------------------
+        // ----------------------------------------- Statistics Data Structures
+        // End Times array, one per run
+        double[] endTimes = new double[R];
+        // Queuing Times array, one per job
+        double[] queuingTimes = new double[N];
+        int n = 0;
+        // Average Queuing Times array, one per run
+        double[] avgQueuingTimes = new double[R];
+        // Queueing Times matrix, divided per Category
+        double[][] queuingTimesCategory = new double[H][N];
+        // Average Queuing Times matrix per Category, one column per run
+        double[][] avgQueuingTimesCategory = new double[H][R];
+        // counter array for the number of Events of each Category
+        double[] cntCatJobs = new double[H];
+        // Service Times matrix, divided per Category
+        double[][] serviceTimesCategory = new double[H][N];
+        // Average Service Times matrix per Category, one column per run
+        double[][] avgServiceTimesCategory = new double[H][R];
         // --------------------------------------------------------------------
         // --------------------------------------------------------- Simulation
         // R repetitions
         for (int r = 0; r < R; r++) {
-            // N - H iterations (total of N Jobs simulated)
-            i = H;
-            boolean finished = false;
-            while (!finished) {
+            // clearing/resetting structures | '-1' means "no data registered"
+            timeLine.clear();
+            for (int c = 0; c < H; c++) {
+                for (int s = 0; s < N; s++) {
+                    queuingTimesCategory[c][s] = -1.0;
+                    serviceTimesCategory[c][s] = -1.0;
+                }
+            }
+            // generating the arrival Event of the first Job of each Category
+            for (i = 0; i < H; i++) {
+                Job firstJob = new Job(categories[i]);
+                Event firstEvent = new Event(
+                        false,
+                        categories[i].getInterarrivalTime(),
+                        firstJob);
+                firstJob.setAssociatedEvent(firstEvent);
+                timeLine.add(firstEvent);
+            }
+            // here starts the simulation. Below an explanation of how it works:
+            //
+            // while(timeline has Events to manage)
+            // | newEvent ← timeline.poll()
+            // | if (newEvent is 'arrival of a Job') then
+            // | | process arrival
+            // | | schedule next arrival
+            // | | select Server
+            // | | if (server available) then
+            // | | | execute Job
+            // | | | schedule end
+            // | | else add Job to Server's queue
+            // | else
+            // | | process end Event
+            // | | manage Server's queue and executions
+            //
+            // meanwhile it'll updates all the statistics needed
+            i = 0;
+            while (!timeLine.isEmpty()) {
                 Event newEvent = timeLine.poll();
+                // if it is the case, prints the event extracted (for 2N times)
+                if (R == 1 && N <= 10 && P == false && (i < N || newEvent.getEventType() == true)) {
+                    System.out.println(newEvent.getArrivalTime() + ","
+                            + (newEvent.getEventType() ? newEvent.getAssociatedJob().getServiceTime() : 0.0) + ","
+                            + newEvent.getAssociatedJob().getCategory().getCategoryNumber());
+                }
                 if (newEvent.getEventType() == false && i < N) { // new Job arrival
                     Category eCategory = newEvent.getAssociatedJob().getCategory();
+                    // updating counter
+                    cntCatJobs[eCategory.getCategoryNumber()]++;
                     // schedule next arrival
-                    timeLine.add(new Event(
+                    Job eventJob = new Job(eCategory);
+                    Event nextEvent = new Event(
                             false,
                             newEvent.getArrivalTime() + eCategory.getInterarrivalTime(),
-                            new Job(eCategory, eCategory.getServiceTime())));
+                            eventJob);
+                    eventJob.setAssociatedEvent(nextEvent);
+                    timeLine.add(nextEvent);
                     // select Server according to the wanted scheduling policy
                     Server eServer;
                     if (P == false) {
@@ -107,17 +163,36 @@ public class Simulator {
                         // TODO use custom scheduling policy
                     }
                     if (eServer.getJobInExecution() == null) { // Server available
+                        newEvent.getAssociatedJob().setServiceTime(eCategory.getServiceTime());
                         eServer.setJobInExecution(newEvent.getAssociatedJob());
+                        // no time in queue
+                        queuingTimes[n++] = 0.0;
+                        int nCat = newEvent.getAssociatedJob().getCategory().getCategoryNumber();
+                        int kc = 0;
+                        while (kc < N - 1 && queuingTimesCategory[nCat][kc] != -1.0) {
+                            kc++;
+                        }
+                        queuingTimesCategory[nCat][kc] = 0.0;
+                        // updating service time stats
+                        kc = 0;
+                        while (kc < N - 1 && serviceTimesCategory[nCat][kc] != -1.0) {
+                            kc++;
+                        }
+                        serviceTimesCategory[nCat][kc] = newEvent.getAssociatedJob().getServiceTime();
                         // schedule execution end
-                        timeLine.add(new Event(
+                        Job newEventJob = newEvent.getAssociatedJob();
+                        Event nextEndEvent = new Event(
                                 true,
                                 newEvent.getArrivalTime()
                                         + newEvent.getAssociatedJob().getServiceTime(),
-                                newEvent.getAssociatedJob()));
+                                newEventJob);
+                        newEventJob.setAssociatedEvent(nextEndEvent);
+                        timeLine.add(nextEndEvent);
                     } else { // Server unavailable
                         // add Job to Server's FIFO Queue
                         eServer.getWaitingJobs().add(newEvent.getAssociatedJob());
                     }
+                    // updates the counter of Jobs managed (until N)
                     i++;
                 } else if (newEvent.getEventType() == true) { // Job execution end
                     // scheduled server's search
@@ -127,30 +202,77 @@ public class Simulator {
                     }
                     if (!servers[k].getWaitingJobs().isEmpty()) { // queue not empty
                         // executing the first Job in the queue
-                        servers[k].setJobInExecution(servers[k].getWaitingJobs().poll());
+                        Job nextJob = servers[k].getWaitingJobs().poll();
+                        nextJob.setServiceTime(nextJob.getCategory().getServiceTime());
+                        servers[k].setJobInExecution(nextJob);
+                        // updating queuing time of this new executing job
+                        Event jobArrivalEvent = servers[k].getJobInExecution().getAssociatedEvent();
+                        queuingTimes[n++] = newEvent.getArrivalTime() - jobArrivalEvent.getArrivalTime();
+                        // updating queueing time per category
+                        int nCat = nextJob.getCategory().getCategoryNumber();
+                        int kc = 0;
+                        while (kc < N - 1 && queuingTimesCategory[nCat][kc] != -1.0) {
+                            kc++;
+                        }
+                        queuingTimesCategory[nCat][kc] = newEvent.getArrivalTime() - jobArrivalEvent.getArrivalTime();
+                        // updating service time stats
+                        kc = 0;
+                        while (kc < N - 1 && serviceTimesCategory[nCat][kc] != -1.0) {
+                            kc++;
+                        }
+                        serviceTimesCategory[nCat][kc] = nextJob.getServiceTime();
                         // schedule execution end
-                        timeLine.add(new Event(
+                        Job nextEventJob = servers[k].getJobInExecution();
+                        Event nextEndEvent = new Event(
                                 true,
                                 newEvent.getArrivalTime()
                                         + servers[k].getJobInExecution().getServiceTime(),
-                                servers[k].getJobInExecution()));
+                                nextEventJob);
+                        nextEventJob.setAssociatedEvent(nextEndEvent);
+                        timeLine.add(nextEndEvent);
                     } else { // queue empty
                         // no more execution for now
                         servers[k].setJobInExecution(null);
+                        // candidate end time for the r-th run
+                        endTimes[r] = newEvent.getArrivalTime();
                     }
-                    // TODO update stats
-                } else { // new Job arrival, but i ≥ N
-                }
-                // checking is the simulation is finished
-                finished = true;
-                for (int k = 0; k < K; k++) {
-                    if (servers[k].getJobInExecution() != null)
-                        finished = false;
+                } else {
+                    // new Job arrival, but i ≥ N
                 }
             }
+            // calculating the average queuing time of this run
+            for (n = 0; n < N; n++) {
+                avgQueuingTimes[r] += queuingTimes[n];
+            }
+            avgQueuingTimes[r] /= N;
+            n = 0;
+            // calculating the average queuing times per category of this run
+            for (int h = 0; h < H; h++) {
+                int k = 0;
+                while (k < N - 1 && queuingTimesCategory[h][k] != -1.0) {
+                    avgQueuingTimesCategory[h][r] += queuingTimesCategory[h][k];
+                    k++;
+                }
+                avgQueuingTimesCategory[h][r] /= (k != 0 ? k : 1);
+            }
+            // calculating the average service times per category of this run
+            for (int h = 0; h < H; h++) {
+                int k = 0;
+                while (k < N - 1 && serviceTimesCategory[h][k] != -1.0) {
+                    avgServiceTimesCategory[h][r] += serviceTimesCategory[h][k];
+                    k++;
+                }
+                avgServiceTimesCategory[h][r] /= (k != 0 ? k : 1);
+            }
         }
-
-        // TODO print output
+        // --------------------------------------------------------------------
+        // --------------------------------------------- Remaining Output Print
+        System.out.println(ET(R, endTimes));
+        System.out.println(AQT_all(R, avgQueuingTimes));
+        for (int h = 0; h < H; h++) {
+            System.out.println(cntCatJobs[h] / R + "," + AQT(R, avgQueuingTimesCategory, h)
+                    + "," + AST(R, avgServiceTimesCategory, h));
+        }
     }
 
     /**
@@ -167,10 +289,86 @@ public class Simulator {
 
     // TODO develop custom scheduling policy
 
-    // TODO implement statistic methods
-    // End Time
-    // Average Queueing Time of all jobs
-    // Average Queueing Time of job a category
+    /**
+     * This function calculates the average of a given array of end times.
+     * 
+     * @param R        the number of end times (number or repetitions)
+     * @param endTimes an array of end times, one value for each repetition
+     * @return the average of the end times.
+     */
+    private static double ET(int R, double[] endTimes) {
+        double sumEndTime = 0;
+        for (int r = 0; r < R; r++) {
+            sumEndTime += endTimes[r];
+        }
+        return sumEndTime / R;
+    }
+
+    /**
+     * This function calculates the average queuing time of a Job
+     * 
+     * @param R               the number of repetitions
+     * @param avgQueuingTimes an array of
+     *                        double values representing the average queuing times
+     *                        for each repetition.
+     *                        The length of the array is R, which is the total
+     *                        number of repetition.
+     * @return the total average queuing time for all repetitions
+     */
+    private static double AQT_all(int R, double[] avgQueuingTimes) {
+        double sumAvgTime = 0;
+        for (int r = 0; r < R; r++) {
+            sumAvgTime += avgQueuingTimes[r];
+        }
+        return sumAvgTime / R;
+    }
+
+    /**
+     * The function calculates the average queuing time for a specific category
+     * based on the given average queuing times and the number of repetitions
+     * 
+     * @param R                       the number of repetitions
+     * @param avgQueuingTimesCategory matrix of doubles. It represents the average
+     *                                queuing times for
+     *                                different Categories throughout each
+     *                                repetition. One Category each row, the average
+     *                                queuing time for a repetition each column
+     * @param nCat                    the category number. It is used
+     *                                to access the specific row in the
+     *                                "avgQueuingTimesCategory" matrix
+     * @return the total average queuing time for a specific
+     *         category.
+     */
+    private static double AQT(int R, double[][] avgQueuingTimesCategory, int nCat) {
+        double sumAvgTime = 0;
+        for (int r = 0; r < R; r++) {
+            sumAvgTime += avgQueuingTimesCategory[nCat][r];
+        }
+        return sumAvgTime / R;
+    }
+
+    /**
+     * The function calculates the average service time for a specific category
+     * based on the given average service times and the number of repetitions
+     * 
+     * @param R                       the number of repetitions
+     * @param avgServiceTimesCategory matrix of doubles. It represents the average
+     *                                service times for different Categories
+     *                                throughout each repetition. One Category each
+     *                                row, the average service time for a repetition
+     *                                each column
+     * @param nCat                    the category number. It is used to access
+     *                                the specific row in the
+     *                                "avgServiceTimesCategory" matrix
+     * @return the total average service time for a specific category.
+     */
+    private static double AST(int R, double[][] avgServiceTimesCategory, int nCat) {
+        double sumAvgTime = 0;
+        for (int r = 0; r < R; r++) {
+            sumAvgTime += avgServiceTimesCategory[nCat][r];
+        }
+        return sumAvgTime / R;
+    }
 }
 
 // =============================================================================
@@ -198,6 +396,7 @@ class Event implements Comparable<Event> {
      */
     public Event(boolean eventType, double arrivalTime, Job associatedJob) {
         this.eventType = eventType;
+        this.arrivalTime = arrivalTime;
         this.associatedJob = associatedJob;
     }
 
@@ -256,6 +455,7 @@ class Event implements Comparable<Event> {
 class Job {
     private Category category;
     private double serviceTime;
+    private Event associatedEvent;
 
     /**
      * This constructor initializes a new Job object with the given parameters
@@ -263,9 +463,8 @@ class Job {
      * @param category    category to which the Job belongs
      * @param serviceTime the amount of time required by the Job to be executed
      */
-    public Job(Category category, double serviceTime) {
+    public Job(Category category) {
         this.category = category;
-        this.serviceTime = serviceTime;
     }
 
     /**
@@ -284,6 +483,33 @@ class Job {
      */
     public double getServiceTime() {
         return this.serviceTime;
+    }
+
+    /**
+     * Setter for the service time field
+     * 
+     * @param serviceTime the service time assignated to this Job
+     */
+    public void setServiceTime(double serviceTime) {
+        this.serviceTime = serviceTime;
+    }
+
+    /**
+     * Getter for the associated Event field
+     * 
+     * @return the link "associatedEvent" as an Event reference
+     */
+    public Event getAssociatedEvent() {
+        return this.associatedEvent;
+    }
+
+    /**
+     * Setter for the associated Event field
+     * 
+     * @param associatedEvent an Event reference
+     */
+    public void setAssociatedEvent(Event associatedEvent) {
+        this.associatedEvent = associatedEvent;
     }
 }
 
