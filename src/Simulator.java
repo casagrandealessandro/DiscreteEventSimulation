@@ -1,5 +1,57 @@
+/* NOTE PER IL PROFESSORE
+
+ * Funzionamento della scheduling policy alternativa [customSP_bad (ora disattivata)]:
+ * l'algoritmo scorre l'array contenente i server, se ne trova uno che non sta
+ * eseguendo alcun job, ritorna l'indice della sua posizione all'interno
+ * dell'array, e quello sarà il server selezionato. Altrimenti ritorna l'indice
+ * del server con la FIFO queue contenente il minor numero di Job in attesa.
+ * 
+ * PROBLEMATICHE RISCONTRATE:
+ * confrontanto i dati nell'esecuzione della simulazione utilizzando la
+ * scheduling policy alternativa, nella maggior parte dei casi l'Average Queuing
+ * Time totale e gli Average Queuing Times delle singole categorie diminuiscono,
+ * mentre l'End Time della simulazione peggiora o rimane invariato.
+ * 
+ * Di seguito riporto un riassunto dei dati ottenuti nelle varie simulazioni:
+ * format: (dato con scheduling policy alternativa) [operatore] (dato con RR)
+ *      ET          AQT-all         AQT/categorie [C_1, ..., C_H]
+ * 1)   =              <                        >, <
+ * 2)   >              >                       >, >, >
+ * 3)   =              =                        =, =
+ * 4)   >              <                    <, <, <, <, <
+ * 5)   =              <                       <, <, <
+ * 
+ * Come si può vedere, tranne in alcuni casi, la scheduling policy alternativa
+ * sembra essere efficace per quanto riguarda la diminuzione del tempo trascorso
+ * in coda. Quello che non mi è chiaro è il motivo per cui l'end time totale
+ * non diminuisce, l'unica mia ipotesi è che la "casualità" introdotta nella
+ * scelta del server e il conseguente "andamento" della simulazione sia tale
+ * per cui accade che un server riceva "per sfortuna" tanti job con un alto
+ * service time.
+ * 
+ * -----------------------------------------------------------------------------
+ * 
+ * Per risolvere questo problema, ho ideato una scheduling policy simile, ma
+ * migliore [customSP_good (ora attiva)]: per ogni server viene eseguita una
+ * funzione che lo "valuta" in base non solo alla lunghezza della coda, ma anche
+ * in base a quando terminerà il job attualmente in esecuzione.
+ * Per i dettagli implementativi si veda il commento sopra il metodo.
+ * Nella funzione che valuta l'idoneità di un server ad essere scelto, sono
+ * presenti 2 pesi (φ e τ) modificabili. Dopo svariati test ho optato per quelli
+ * attualmente impostati, in quanto i più bilanciati nei vari casi possibili,
+ * anche se servirebbe una più attenta ed estesa analisi delle prestazioni.
+ * In questo modo, la situazione sopra descritta viene, almeno nella buona parte
+ * dei casi, evitata, e le statistiche effettivamente migliorano.
+ * 
+ * -----------------------------------------------------------------------------
+ * 
+ * In caso di necessità, può contattarmi all'indirizzo
+ * alessandro.casagrande.4@studenti.unipd.it
+ */
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -8,7 +60,7 @@ import java.util.Scanner;
 
 /**
  * @author Alessandro Casagrande - 2066716
- * @version 1.2 2023/12/31
+ * @version 1.3 2024/01/16
  */
 public class Simulator {
     static int selectedServerNumber = -1;
@@ -40,7 +92,7 @@ public class Simulator {
         final int H = Integer.parseInt(line.next());
         final int N = Integer.parseInt(line.next());
         final int R = Integer.parseInt(line.next());
-        final boolean P = Boolean.parseBoolean(line.next());
+        final boolean P = Integer.parseInt(line.next()) == 0 ? false : true;
         // H lines, 4 values each
         double[][] generationParam = new double[H][4];
         int j;
@@ -136,7 +188,12 @@ public class Simulator {
             i = 0;
             while (!timeLine.isEmpty()) {
                 Event newEvent = timeLine.poll();
-                // if it is the case, prints the event extracted (for 2N times)
+                // if it is the case, prints the Event extracted (for 2N times)
+                // for each Event it is printed, in order:
+                // time of occurence;
+                // service time, if the event is the end of execution of a Job,
+                // 0 otherwise;
+                // Category of the Job
                 if (R == 1 && N <= 10 && P == false && (i < N || newEvent.getEventType() == true)) {
                     System.out.println(newEvent.getArrivalTime() + ","
                             + (newEvent.getEventType() ? newEvent.getAssociatedJob().getServiceTime() : 0.0) + ","
@@ -159,8 +216,8 @@ public class Simulator {
                     if (P == false) {
                         eServer = servers[roundRobin(K)];
                     } else {
-                        eServer = null; // delete this line
-                        // TODO use custom scheduling policy
+                        // eServer = servers[customSP_bad(servers)];
+                        eServer = servers[customSP_good(servers, timeLine)];
                     }
                     if (eServer.getJobInExecution() == null) { // Server available
                         newEvent.getAssociatedJob().setServiceTime(eCategory.getServiceTime());
@@ -267,6 +324,14 @@ public class Simulator {
         }
         // --------------------------------------------------------------------
         // --------------------------------------------- Remaining Output Print
+        // one each line:
+        // End Time (average over R runs)
+        // Average Queuing Time (average over R runs)
+        // for each Category:
+        // - number of simulated Job of that Category
+        // - Average Queuing Time
+        // - Average service time of the simulated Jobs
+        // (all averages over R runs)
         System.out.println(ET(R, endTimes));
         System.out.println(AQT_all(R, avgQueuingTimes));
         for (int h = 0; h < H; h++) {
@@ -287,7 +352,88 @@ public class Simulator {
         return selectedServerNumber;
     }
 
-    // TODO develop custom scheduling policy
+    /**
+     * This custom scheduling policy selects the server with the shortest
+     * queue length or the first available Server if no Jobs are currently being
+     * executed
+     * 
+     * @param servers An array of Server objects, each of them with his
+     *                currently executing Job (if there is one), and his FIFO
+     *                queue containing the waiting Jobs
+     * @return the index of the Server with the best specified parameters
+     */
+    private static int customSP_bad(Server[] servers) {
+        int minQueueLength = 0, s = 0;
+        for (int k = 0; k < servers.length; k++) {
+            if (servers[k].getJobInExecution() == null)
+                return k;
+            int queueLength = servers[k].getWaitingJobs().size();
+            if (queueLength <= minQueueLength) {
+                minQueueLength = queueLength;
+                s = k;
+            }
+        }
+        return s;
+    }
+
+    /**
+     * This custom scheduling policy selects the best Server based on eligibility
+     * criteria of each Server. This consists in a function ƒ(𝑥,𝑦) = φ𝑥 + τy,
+     * where
+     * 𝑥 := "consecutive position of the next execution end Event" (in other
+     * words, a parameter that refers to "when the current executiong Job
+     * will finish compared to others servers")
+     * 𝑦 := "number of waiting Job in the queue"
+     * φ,τ ∈ [0,1] ⊂ ℝ are related weight
+     * 
+     * @param servers  An array of Server objects, each of them with his
+     *                 currently executing Job (if there is one), and his FIFO
+     *                 queue containing the waiting Jobs
+     * @param timeLine The next upcoming Events in the simulation
+     * @return the index of the server with the lowest eligibility value
+     */
+    private static int customSP_good(Server[] servers, PriorityQueue<Event> timeLine) {
+        final double phi = 0.4, tau = 0.6;
+        int x = 0, y;
+        Iterator<Event> nextEvents = timeLine.iterator();
+        while (nextEvents.hasNext() && x < servers.length) {
+            Event e = nextEvents.next();
+            // for each 'end of execution' Event
+            if (e.getEventType() == true) {
+                // scheduled server search
+                int k = 0;
+                while (k < servers.length && servers[k].getJobInExecution() != e.getAssociatedJob()) {
+                    k++;
+                }
+                // setting the x parameter as specified,
+                // the lowest the value -> the best eligibility
+                x++;
+                // setting the y parameter as specified,
+                // the lowest the value -> the best eligibility
+                y = servers[k].getWaitingJobs().size();
+                servers[k].setEligibility(phi * x + tau * y);
+            }
+        }
+        // all Servers unviewed are checked to find possible free Server
+        // if it happens, it has the best eligibility
+        for (Server s : servers) {
+            if (s.getEligibility() == Double.POSITIVE_INFINITY) {
+                if (s.getJobInExecution() == null) {
+                    s.setEligibility(0);
+                }
+            }
+        }
+        double bestEligibility = Double.POSITIVE_INFINITY;
+        int bestServer = 0;
+        // searching the Server with the best eligibility
+        for (int k = 0; k < servers.length; k++) {
+            if (servers[k].getEligibility() <= bestEligibility) {
+                bestEligibility = servers[k].getEligibility();
+                bestServer = k;
+            }
+        }
+        return bestServer;
+    }
 
     /**
      * This function calculates the average of a given array of end times.
@@ -460,8 +606,7 @@ class Job {
     /**
      * This constructor initializes a new Job object with the given parameters
      * 
-     * @param category    category to which the Job belongs
-     * @param serviceTime the amount of time required by the Job to be executed
+     * @param category category to which the Job belongs
      */
     public Job(Category category) {
         this.category = category;
@@ -588,6 +733,7 @@ class Server {
     private int serverNumber;
     private Job jobInExecution;
     private Queue<Job> waitingJobs;
+    private double eligibility;
 
     /**
      * This constructor initializes a new Server object with the given parameters
@@ -597,6 +743,7 @@ class Server {
     public Server(int serverNumber) {
         this.serverNumber = serverNumber;
         this.waitingJobs = new LinkedList<Job>();
+        this.eligibility = Double.POSITIVE_INFINITY;
     }
 
     /**
@@ -624,6 +771,22 @@ class Server {
      */
     public Queue<Job> getWaitingJobs() {
         return this.waitingJobs;
+    }
+
+    /**
+     * Getter for the eligibility field
+     * @return the value of "eligibility" field as a double
+     */
+    public double getEligibility() {
+        return eligibility;
+    }
+
+    /**
+     * Setter for the eligibility field
+     * @param eligibility eligibility parameter of this server, as a double
+     */
+    public void setEligibility(double eligibility) {
+        this.eligibility = eligibility;
     }
 }
 

@@ -2,45 +2,45 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
 <svg width="57cm" height="51cm" viewBox="414 160 1127 1009" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
-    <rect style="fill: #ffffff" x="415.961" y="161.29" width="1124.26" height="1006.29"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="415.961" y="161.29" width="1124.26" height="1006.29"/>
+    <rect style="fill: #ffffff" x="415.96" y="161.29" width="1124.26" height="1006.29"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="415.96" y="161.29" width="1124.26" height="1006.29"/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="508.145" y="675.1" width="341.1" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="508.145" y="675.1" width="341.1" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="678.695" y="694.1">Event</text>
-    <rect style="fill: #ffffff" x="508.145" y="703.1" width="341.1" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="508.145" y="703.1" width="341.1" height="52"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="717.1">-eventType: boolean</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="733.1">-arrivalTime: floating point</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="749.1">-associatedJob: Job</text>
-    <rect style="fill: #ffffff" x="508.145" y="755.1" width="341.1" height="84"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="508.145" y="755.1" width="341.1" height="84"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="769.1">+Event(eventType:boolean,associatedJob:Job)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="785.1">+getEventType(): boolean</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="801.1">+getArrivalTime(): floating point</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="817.1">+getAssociatedJob(): Job</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.145" y="833.1">+compareTo(event:Event): integer</text>
+    <rect style="fill: #ffffff" x="508.144" y="675.1" width="341.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="508.144" y="675.1" width="341.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="678.694" y="694.1">Event</text>
+    <rect style="fill: #ffffff" x="508.144" y="703.1" width="341.1" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="508.144" y="703.1" width="341.1" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="717.1">-eventType: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="733.1">-arrivalTime: floating point</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="749.1">-associatedJob: Job</text>
+    <rect style="fill: #ffffff" x="508.144" y="755.1" width="341.1" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="508.144" y="755.1" width="341.1" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="769.1">+Event(eventType:boolean,associatedJob:Job)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="785.1">+getEventType(): boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="801.1">+getArrivalTime(): floating point</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="817.1">+getAssociatedJob(): Job</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.144" y="833.1">+compareTo(event:Event): integer</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="990.859" y="690.964" width="502.8" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="990.859" y="690.964" width="502.8" height="28"/>
+    <rect style="fill: #ffffff" x="990.858" y="690.964" width="502.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="990.858" y="690.964" width="502.8" height="28"/>
     <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1242.26" y="709.964">Category</text>
-    <rect style="fill: #ffffff" x="990.859" y="718.964" width="502.8" height="84"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="990.859" y="718.964" width="502.8" height="84"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="732.964">-categoryNumber: integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="748.964">-arrivalGenerator: Random</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="764.964">-serviceGenerator: Random</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="780.964">-lambdaArrival: floating point</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="796.964">-lamdaService: floating point</text>
-    <rect style="fill: #ffffff" x="990.859" y="802.964" width="502.8" height="100"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="990.859" y="802.964" width="502.8" height="100"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="816.964">+Category(categoryNumber:integer,lambdaArrival:floating point,</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="832.964">          lambdaService:floating point,seedArrival:long integer,</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="848.964">          seedService:long integer)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="864.964">+getCategoryNumber(): integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="880.964">+getInterarrivalTime(): floating point</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.859" y="896.964">+getServiceTime(): floating point</text>
+    <rect style="fill: #ffffff" x="990.858" y="718.964" width="502.8" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="990.858" y="718.964" width="502.8" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="732.964">-categoryNumber: integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="748.964">-arrivalGenerator: Random</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="764.964">-serviceGenerator: Random</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="780.964">-lambdaArrival: floating point</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="796.964">-lamdaService: floating point</text>
+    <rect style="fill: #ffffff" x="990.858" y="802.964" width="502.8" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="990.858" y="802.964" width="502.8" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="816.964">+Category(categoryNumber:integer,lambdaArrival:floating point,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="832.964">          lambdaService:floating point,seedArrival:long integer,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="848.964">          seedService:long integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="864.964">+getCategoryNumber(): integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="880.964">+getInterarrivalTime(): floating point</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="993.858" y="896.964">+getServiceTime(): floating point</text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="508.958" y="880.834" width="341.1" height="28"/>
@@ -61,119 +61,126 @@
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="511.958" y="1054.83">+setAssociatedEvent(associatedEvent:Event)</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="958.131" y="959.046" width="302.6" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="958.131" y="959.046" width="302.6" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1109.43" y="978.046">Server</text>
-    <rect style="fill: #ffffff" x="958.131" y="987.046" width="302.6" height="52"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="958.131" y="987.046" width="302.6" height="52"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1001.05">-serverNumber: integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1017.05">-jobInExecution: Job</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1033.05">-waitingJob: Queue&lt;Job&gt;</text>
-    <rect style="fill: #ffffff" x="958.131" y="1039.05" width="302.6" height="68"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="958.131" y="1039.05" width="302.6" height="68"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1053.05">+Server(serverNumber:integer)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1069.05">+getJobInExecution(): Job</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1085.05">+setJobInExecution(jobInExecution:Job)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.131" y="1101.05">+getWaitingJobs(): Queue&lt;Job&gt;</text>
+    <rect style="fill: #ffffff" x="958.13" y="959.046" width="341.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="958.13" y="959.046" width="341.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1128.68" y="978.046">Server</text>
+    <rect style="fill: #ffffff" x="958.13" y="987.046" width="341.1" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="958.13" y="987.046" width="341.1" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1001.05">-serverNumber: integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1017.05">-jobInExecution: Job</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1033.05">-waitingJob: Queue&lt;Job&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1049.05">-eligibility: floating point</text>
+    <rect style="fill: #ffffff" x="958.13" y="1055.05" width="341.1" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="958.13" y="1055.05" width="341.1" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1069.05">+Server(serverNumber:integer)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1085.05">+getJobInExecution(): Job</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1101.05">+setJobInExecution(jobInExecution:Job)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1117.05">+getWaitingJobs(): Queue&lt;Job&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1133.05">+getEligibility(): floating point</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="961.13" y="1149.05">+setEligibility(eligibility:floating point)</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="1332.72" y="1043.72" width="102.9" height="56"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1332.72" y="1043.72" width="102.9" height="56"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1384.17" y="1062.72">LinkedList</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1384.17" y="1078.22">standard library</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1384.17" y="1092.22">LinkedList class</text>
-    <rect style="fill: #ffffff" x="1332.72" y="1099.72" width="102.9" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1332.72" y="1099.72" width="102.9" height="8"/>
-    <rect style="fill: #ffffff" x="1332.72" y="1107.72" width="102.9" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1332.72" y="1107.72" width="102.9" height="8"/>
+    <rect style="fill: #ffffff" x="1367.2" y="1047.93" width="102.9" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1367.2" y="1047.93" width="102.9" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1418.65" y="1066.93">LinkedList</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1418.65" y="1082.43">standard library</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1418.65" y="1096.43">LinkedList class</text>
+    <rect style="fill: #ffffff" x="1367.2" y="1103.93" width="102.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1367.2" y="1103.93" width="102.9" height="8"/>
+    <rect style="fill: #ffffff" x="1367.2" y="1111.93" width="102.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1367.2" y="1111.93" width="102.9" height="8"/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="1164.58" y="201.231" width="141.7" height="70"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1164.58" y="201.231" width="141.7" height="70"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1235.43" y="220.231">ProprityQueue</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1235.43" y="235.731">standard library</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1235.43" y="249.731">Priority Queue</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1235.43" y="263.731">class</text>
-    <rect style="fill: #ffffff" x="1164.58" y="271.231" width="141.7" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1164.58" y="271.231" width="141.7" height="8"/>
-    <rect style="fill: #ffffff" x="1164.58" y="279.231" width="141.7" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1164.58" y="279.231" width="141.7" height="8"/>
+    <rect style="fill: #ffffff" x="1168.78" y="190.3" width="141.7" height="70"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1168.78" y="190.3" width="141.7" height="70"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1239.63" y="209.3">ProprityQueue</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1239.63" y="224.8">standard library</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1239.63" y="238.8">Priority Queue</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1239.63" y="252.8">class</text>
+    <rect style="fill: #ffffff" x="1168.78" y="260.3" width="141.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1168.78" y="260.3" width="141.7" height="8"/>
+    <rect style="fill: #ffffff" x="1168.78" y="268.3" width="141.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1168.78" y="268.3" width="141.7" height="8"/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="481.84" y="197.499" width="564.4" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="481.84" y="197.499" width="564.4" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="764.04" y="216.499">Simulator</text>
-    <rect style="fill: #ffffff" x="481.84" y="225.499" width="564.4" height="292"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="481.84" y="225.499" width="564.4" height="292"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="239.499">+timeLine: PriorityQueue&lt;Event&gt;</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="255.499">+selectedServerNumber: integer = -1</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="484.84" y1="261.099" x2="754.34" y2="261.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="271.499">+K: final integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="287.499">+H: final integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="303.499">+N: final integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="319.499">+R: final integer</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="335.499">+P: final boolean</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="351.499">+generationParam: floating point matrix(H,4)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="367.499">+categories: Category array(H)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="383.499">+servers: Server array(K)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="399.499">+endTimes: floating point array(R)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="415.499">+queueingTimes: floating point array(N)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="431.499">+avgQueuingTimes: floating point array(R)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="447.499">+queuingTimesCategory: floating point matrix(H,N)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="463.499">+avgQueuingTimesCategory: floating point matrix(H,R)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="479.499">+cntCatJobs: floating point array(H)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="495.499">+serviceTimesCategory: floating point matrix(H,N)</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="511.499">+avgServiceTimesCategory: floating point matrix(H,R)</text>
-    <rect style="fill: #ffffff" x="481.84" y="517.499" width="564.4" height="116"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="481.84" y="517.499" width="564.4" height="116"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="531.499">+roundRobin(K:integer): integer</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="484.84" y1="533.099" x2="723.54" y2="533.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="547.499">+ET(R:integer,endTimes:floating point array): floating point</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="484.84" y1="549.099" x2="946.84" y2="549.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="563.499">+AQT_all(R:integer,avgQueuingTimes:floating point array): floating point</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="484.84" y1="565.099" x2="1039.24" y2="565.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="579.499">+AQT(R:integer,avgQueuingTimesCategory:floating point matrix,</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="484.84" y1="581.099" x2="954.54" y2="581.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="595.499">     nCat:integer): floating point</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="523.34" y1="597.099" x2="746.64" y2="597.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="611.499">+AST(R:integer,avgServiceTimesCategory:floating point matrix,</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="484.84" y1="613.099" x2="954.54" y2="613.099"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="484.84" y="627.499">     nCat:integer): floating point</text>
-    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="523.34" y1="629.099" x2="746.64" y2="629.099"/>
+    <rect style="fill: #ffffff" x="465.022" y="186.567" width="587.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="465.022" y="186.567" width="587.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="758.772" y="205.567">Simulator</text>
+    <rect style="fill: #ffffff" x="465.022" y="214.567" width="587.5" height="292"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="465.022" y="214.567" width="587.5" height="292"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="228.567">+timeLine: PriorityQueue&lt;Event&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="244.567">+selectedServerNumber: integer = -1</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="250.167" x2="737.522" y2="250.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="260.567">+K: final integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="276.567">+H: final integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="292.567">+N: final integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="308.567">+R: final integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="324.567">+P: final boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="340.567">+generationParam: floating point matrix(H,4)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="356.567">+categories: Category array(H)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="372.567">+servers: Server array(K)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="388.567">+endTimes: floating point array(R)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="404.567">+queueingTimes: floating point array(N)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="420.567">+avgQueuingTimes: floating point array(R)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="436.567">+queuingTimesCategory: floating point matrix(H,N)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="452.567">+avgQueuingTimesCategory: floating point matrix(H,R)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="468.567">+cntCatJobs: floating point array(H)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="484.567">+serviceTimesCategory: floating point matrix(H,N)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="500.567">+avgServiceTimesCategory: floating point matrix(H,R)</text>
+    <rect style="fill: #ffffff" x="465.022" y="506.567" width="587.5" height="148"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="465.022" y="506.567" width="587.5" height="148"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="520.567">+roundRobin(K:integer): integer</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="522.167" x2="706.722" y2="522.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="536.567">+customSP_bad(servers:Server array): integer</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="538.167" x2="806.822" y2="538.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="552.567">+customSP_good(servers:Server array,timeLine:PriorityQueue&lt;Event&gt;): integer</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="554.167" x2="1045.52" y2="554.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="568.567">+ET(R:integer,endTimes:floating point array): floating point</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="570.167" x2="930.022" y2="570.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="584.567">+AQT_all(R:integer,avgQueuingTimes:floating point array): floating point</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="586.167" x2="1022.42" y2="586.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="600.567">+AQT(R:integer,avgQueuingTimesCategory:floating point matrix,</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="602.167" x2="937.722" y2="602.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="616.567">     nCat:integer): floating point</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="506.522" y1="618.167" x2="729.822" y2="618.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="632.567">+AST(R:integer,avgServiceTimesCategory:floating point matrix,</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="468.022" y1="634.167" x2="937.722" y2="634.167"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.022" y="648.567">     nCat:integer): floating point</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="506.522" y1="650.167" x2="729.822" y2="650.167"/>
   </g>
-  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="958.131,1013.05 904.094,1013.05 904.094,934.834 850.058,934.834 "/>
-  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="850.058,918.834 920.458,918.834 920.458,728.964 990.859,728.964 "/>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1058.93" y="227.255">
-    <tspan x="1058.93" y="227.255">1</tspan>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="958.13,1013.05 904.094,1013.05 904.094,934.834 850.058,934.834 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="850.058,918.834 920.458,918.834 920.458,728.964 990.858,728.964 "/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1063.14" y="216.322">
+    <tspan x="1063.14" y="216.322">1</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1145.61" y="227.809">
-    <tspan x="1145.61" y="227.809">1</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1149.82" y="216.876">
+    <tspan x="1149.82" y="216.876">1</tspan>
   </text>
-  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1046.24" y1="235.499" x2="1164.58" y2="236.231"/>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1319.77" y="1066.12">
-    <tspan x="1319.77" y="1066.12">1</tspan>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1052.52" y1="224.567" x2="1168.78" y2="225.3"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1354.24" y="1070.32">
+    <tspan x="1354.24" y="1070.32">1</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1269.13" y="1020.05">
-    <tspan x="1269.13" y="1020.05">1</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1303.61" y="1024.25">
+    <tspan x="1303.61" y="1024.25">1</tspan>
   </text>
-  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="679.508" y1="880.834" x2="678.695" y2="839.1"/>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="687.631" y="876.022">
-    <tspan x="687.631" y="876.022">1</tspan>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="679.508" y1="880.834" x2="678.694" y2="839.1"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="687.63" y="876.022">
+    <tspan x="687.63" y="876.022">1</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="687.009" y="854.028">
-    <tspan x="687.009" y="854.028">1..2</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="687.008" y="854.028">
+    <tspan x="687.008" y="854.028">1..2</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="941.631" y="1031.02">
-    <tspan x="941.631" y="1031.02">1</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="941.63" y="1031.02">
+    <tspan x="941.63" y="1031.02">1</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="863.973" y="951.182">
-    <tspan x="863.973" y="951.182">0..N</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="863.972" y="951.182">
+    <tspan x="863.972" y="951.182">0..N</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="978.999" y="721.204">
-    <tspan x="978.999" y="721.204">1</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="978.998" y="721.204">
+    <tspan x="978.998" y="721.204">1</tspan>
   </text>
-  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="863.493" y="907.472">
-    <tspan x="863.493" y="907.472">1..N</tspan>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="863.492" y="907.472">
+    <tspan x="863.492" y="907.472">1..N</tspan>
   </text>
   <g>
     <rect style="fill: #ffffff" x="543.9" y="1091.57" width="269.6" height="28"/>
@@ -186,25 +193,25 @@
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="546.9" y="1141.57">+compareTo(o:T): integer</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="525.664,1105.57 464.131,1105.57 464.131,689.1 508.145,689.1 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="525.664,1105.57 464.13,1105.57 464.13,689.1 508.144,689.1 "/>
     <polygon style="fill: #ffffff" points="525.664,1113.57 541.664,1105.57 525.664,1097.57 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="525.664,1113.57 541.664,1105.57 525.664,1097.57 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="1292.97" y="921.03" width="181.85" height="56"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1292.97" y="921.03" width="181.85" height="56"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1383.89" y="940.03">&lt;interface&gt; Queue</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1383.89" y="955.53">Standard library</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1383.89" y="969.53">Queue interface</text>
-    <rect style="fill: #ffffff" x="1292.97" y="977.03" width="181.85" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1292.97" y="977.03" width="181.85" height="8"/>
-    <rect style="fill: #ffffff" x="1292.97" y="985.03" width="181.85" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1292.97" y="985.03" width="181.85" height="8"/>
+    <rect style="fill: #ffffff" x="1327.44" y="925.234" width="181.85" height="56"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1327.44" y="925.234" width="181.85" height="56"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1418.37" y="944.234">&lt;interface&gt; Queue</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1418.37" y="959.734">Standard library</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1418.37" y="973.734">Queue interface</text>
+    <rect style="fill: #ffffff" x="1327.44" y="981.234" width="181.85" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1327.44" y="981.234" width="181.85" height="8"/>
+    <rect style="fill: #ffffff" x="1327.44" y="989.234" width="181.85" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1327.44" y="989.234" width="181.85" height="8"/>
   </g>
-  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1260.73,1029.05 1296.73,1029.05 1296.73,1071.72 1332.72,1071.72 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1299.23,1029.05 1333.22,1029.05 1333.22,1075.93 1367.2,1075.93 "/>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="1383.89,1011.27 1383.89,1026.38 1384.17,1026.38 1384.17,1043.72 "/>
-    <polygon style="fill: #ffffff" points="1391.89,1011.27 1383.89,995.266 1375.89,1011.27 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1391.89,1011.27 1383.89,995.266 1375.89,1011.27 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="1418.37,1015.47 1418.37,1030.58 1418.65,1030.58 1418.65,1047.93 "/>
+    <polygon style="fill: #ffffff" points="1426.37,1015.47 1418.37,999.471 1410.37,1015.47 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1426.37,1015.47 1418.37,999.471 1410.37,1015.47 "/>
   </g>
 </svg>
